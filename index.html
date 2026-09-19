@@ -10,12 +10,15 @@
   <meta property="og:description" content="Authentic East African safari experiences across Kenya, Tanzania and Uganda.">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#16382B">
+  <link rel="preload" as="image" href="images/hero_01.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 <header class="site-header" id="site-header">
   <div class="topbar">
     <div class="container topbar-inner">
@@ -45,7 +48,7 @@
   </nav>
 </header>
 
-<main>
+<main id="main-content">
 <section class="hero" id="home" aria-label="East Africa safari">
   <div class="slides">
     <article class="slide active" style="--bg:url('images/hero_01.jpg')">
@@ -121,21 +124,43 @@
   </div>
 </section>
 
-<section class="safaris section" id="safaris">
+<section class="safaris section" id="safaris" aria-labelledby="safaris-title">
   <div class="container">
-    <div class="section-intro"><span class="eyebrow">Plan your journey</span><h2>Featured safari itineraries</h2><p>Start with an itinerary or ask us to tailor a journey around your travel plans.</p></div>
-    <div class="safari-grid">
-      <article class="safari-card"><img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=900&q=85" alt="Safari vehicle in African landscape" loading="lazy"><div><div class="card-tags"><span>Kenya</span><span>7 Days</span></div><h3>7 Days Kenya Wildlife Safari</h3><p>Maasai Mara • Lake Nakuru • Lake Naivasha • Amboseli</p><a class="text-link" href="#contact">View Itinerary →</a></div></article>
-      <article class="safari-card"><img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=900&q=85" alt="African wildlife safari landscape" loading="lazy"><div><div class="card-tags"><span>Tanzania</span><span>8 Days</span></div><h3>Tanzania Wildlife Explorer</h3><p>Serengeti • Ngorongoro • Tarangire</p><a class="text-link" href="#contact">Request Itinerary →</a></div></article>
-      <article class="safari-card"><img src="https://images.unsplash.com/photo-1535338454770-8be927b5a00b?w=900&q=85" alt="Uganda safari landscape" loading="lazy"><div><div class="card-tags"><span>Uganda</span><span>7 Days</span></div><h3>Uganda Wildlife & Gorilla Adventure</h3><p>Wildlife • Forests • Gorilla trekking</p><a class="text-link" href="#contact">Request Itinerary →</a></div></article>
-      <article class="safari-card" id="combined"><img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=900&q=85" alt="East African savannah safari" loading="lazy"><div><div class="card-tags"><span>East Africa</span><span>Tailor-made</span></div><h3>Kenya & Tanzania Combined Safari</h3><p>Build a multi-country journey across two iconic safari destinations.</p><a class="text-link" href="#planner">Plan Combined Safari →</a></div></article>
+    <div class="section-intro"><span class="eyebrow">Plan your journey</span><h2 id="safaris-title">Featured safari itineraries</h2><p>Start with an itinerary or ask us to tailor a journey around your travel plans.</p></div>
+    <div class="safari-filters" role="group" aria-label="Filter safari itineraries">
+      <button class="filter-btn active" type="button" data-filter="all">All</button>
+      <button class="filter-btn" type="button" data-filter="Kenya">Kenya</button>
+      <button class="filter-btn" type="button" data-filter="Tanzania">Tanzania</button>
+      <button class="filter-btn" type="button" data-filter="Uganda">Uganda</button>
+      <button class="filter-btn" type="button" data-filter="East Africa">Multi-country</button>
     </div>
+    <div class="safari-grid" id="safari-grid">
+      <article class="safari-card" data-country="Kenya" data-duration="7"><img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=900&q=85" alt="Safari vehicle in African landscape" loading="lazy"><div><div class="card-tags"><span>Kenya</span><span>7 Days</span></div><h3>7 Days Kenya Wildlife Safari</h3><p>Maasai Mara • Lake Nakuru • Lake Naivasha • Amboseli</p><a class="text-link" href="#contact">View Itinerary →</a></div></article>
+      <article class="safari-card" data-country="Tanzania" data-duration="8"><img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=900&q=85" alt="African wildlife safari landscape" loading="lazy"><div><div class="card-tags"><span>Tanzania</span><span>8 Days</span></div><h3>Tanzania Wildlife Explorer</h3><p>Serengeti • Ngorongoro • Tarangire</p><a class="text-link" href="#contact">Request Itinerary →</a></div></article>
+      <article class="safari-card" data-country="Uganda" data-duration="7"><img src="https://images.unsplash.com/photo-1535338454770-8be927b5a00b?w=900&q=85" alt="Uganda safari landscape" loading="lazy"><div><div class="card-tags"><span>Uganda</span><span>7 Days</span></div><h3>Uganda Wildlife & Gorilla Adventure</h3><p>Wildlife • Forests • Gorilla trekking</p><a class="text-link" href="#contact">Request Itinerary →</a></div></article>
+      <article class="safari-card" id="combined" data-country="East Africa" data-duration="custom"><img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=900&q=85" alt="East African savannah safari" loading="lazy"><div><div class="card-tags"><span>East Africa</span><span>Tailor-made</span></div><h3>Kenya & Tanzania Combined Safari</h3><p>Build a multi-country journey across two iconic safari destinations.</p><a class="text-link" href="#planner">Plan Combined Safari →</a></div></article>
+    </div>
+    <p class="filter-empty" id="filter-empty" hidden>No itineraries match this filter yet. <a href="#contact">Ask us to design one for you.</a></p>
     <div class="center"><a class="btn btn-dark" href="#planner">Request a Custom Itinerary</a></div>
   </div>
 </section>
 
 <section class="experience-band">
   <div class="container experience-inner"><div><span class="eyebrow">Beyond the game drive</span><h2>Adventure. Wildlife.<br><em>Culture. Nature.</em></h2></div><p>From wildlife encounters and photography to gorilla trekking, culture and beach escapes, create a journey that reflects what you want from Africa.</p></div>
+</section>
+
+<section class="experiences section" id="experiences">
+  <div class="container">
+    <div class="section-intro"><span class="eyebrow">Choose your experience</span><h2>Travel your way</h2><p>Explore the experience categories in the master website plan, then let the enquiry form turn your ideas into a journey.</p></div>
+    <div class="experience-grid">
+      <a href="#safaris" class="experience-card"><span>01</span><h3>Wildlife Safaris</h3><p>Game drives, iconic landscapes and classic East African wildlife.</p></a>
+      <a href="#safaris" class="experience-card"><span>02</span><h3>Gorilla Trekking</h3><p>Uganda-focused forest adventures for travellers seeking primates and nature.</p></a>
+      <a href="#contact" class="experience-card"><span>03</span><h3>Family & Honeymoon</h3><p>Private journeys shaped around pace, comfort and shared experiences.</p></a>
+      <a href="#contact" class="experience-card"><span>04</span><h3>Luxury & Budget</h3><p>Tell us your preferred travel style and we can tailor the planning conversation.</p></a>
+      <a href="#contact" class="experience-card"><span>05</span><h3>Photography</h3><p>Build a journey around wildlife, landscapes and time in the field.</p></a>
+      <a href="#contact" class="experience-card"><span>06</span><h3>Culture & Nature</h3><p>Combine wildlife with culture, landscapes and meaningful local experiences.</p></a>
+    </div>
+  </div>
 </section>
 
 <section class="gallery section">
@@ -153,7 +178,7 @@
 
 <section class="reviews section" id="testimonials">
   <div class="container">
-    <div class="section-intro"><span class="eyebrow">Guest experiences</span><h2>What our travellers say</h2><p>Use verified customer reviews here before publishing them publicly.</p></div>
+    <div class="section-intro"><span class="eyebrow">Guest experiences</span><h2>What our travellers say</h2><p>Sample review content shown for layout only — replace with verified customer reviews before publication.</p></div>
     <div class="review-grid">
       <article><div class="stars">★★★★★</div><blockquote>“Everything was planned beautifully and the guides made the whole experience feel personal.”</blockquote><strong>Ann Eisenberg</strong><small>Luxury Safari Tour</small></article>
       <article><div class="stars">★★★★★</div><blockquote>“The landscapes, wildlife and support were beyond what we expected. We loved every day.”</blockquote><strong>Alexandra White</strong><small>Wildlife Photo Tour</small></article>
@@ -168,6 +193,20 @@
       <article class="blog-feature"><img src="https://images.unsplash.com/photo-1504702807577-0e4b37f1de98?w=1000&q=85" alt="Safari planning" loading="lazy"><div><span class="eyebrow">Safari planning</span><h3>How to Prepare for Your First Safari</h3><p>Practical guidance for getting ready for an African wildlife adventure.</p><a href="#contact">Read article →</a></div></article>
       <article><span class="eyebrow">Kenya Travel Guide</span><h3>Best Time to Visit Maasai Mara</h3><p>Build an informed itinerary around the experiences you want.</p><a href="#contact">Read guide →</a></article>
       <article><span class="eyebrow">Safari Planning</span><h3>What to Pack for an East Africa Safari</h3><p>Useful preparation tips for your time in the bush.</p><a href="#contact">Read guide →</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="planning section" id="planning">
+  <div class="container planning-grid">
+    <div class="section-intro"><span class="eyebrow">Plan your safari</span><h2>Useful before you travel.</h2><p>The site structure is ready for detailed planning content without inventing company-specific policies or travel requirements.</p></div>
+    <div class="planning-links">
+      <a href="#contact"><strong>Why East Africa</strong><span>Compare the region's destinations and experiences.</span></a>
+      <a href="#contact"><strong>When to Visit</strong><span>Request date-specific advice for your itinerary.</span></a>
+      <a href="#contact"><strong>Safari Preparation</strong><span>Build a practical preparation checklist.</span></a>
+      <a href="#contact"><strong>Visa & Travel Information</strong><span>Ask for current guidance before booking.</span></a>
+      <a href="#contact"><strong>What to Pack</strong><span>Get a packing list matched to your journey.</span></a>
+      <a href="#contact"><strong>FAQs</strong><span>Send your questions directly to the team.</span></a>
     </div>
   </div>
 </section>
@@ -209,46 +248,87 @@
 
 <script>
 (() => {
-  const slides = [...document.querySelectorAll('.slide')], dots = document.querySelector('.dots');
+  const header = document.getElementById('site-header');
+  const menu = document.getElementById('main-menu');
+  const toggle = document.querySelector('.menu-toggle');
+  const slides = [...document.querySelectorAll('.slide')];
+  const dots = document.querySelector('.dots');
   let current = 0, timer;
+
+  // Hero slider
   slides.forEach((_, i) => {
-    const b = document.createElement('button'); b.setAttribute('aria-label', `Go to slide ${i+1}`);
-    b.addEventListener('click', () => show(i)); dots.appendChild(b);
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    b.addEventListener('click', () => { show(i); restartAuto(); });
+    dots.appendChild(b);
   });
   const dotEls = [...dots.children];
-  function show(i){ current=(i+slides.length)%slides.length; slides.forEach((s,n)=>s.classList.toggle('active',n===current)); dotEls.forEach((d,n)=>d.classList.toggle('active',n===current)); }
-  function auto(){clearInterval(timer);timer=setInterval(()=>show(current+1),7000);}
-  document.querySelector('.slider-next').onclick=()=>{show(current+1);auto()};
-  document.querySelector('.slider-prev').onclick=()=>{show(current-1);auto()};
-  show(0); auto();
+  function show(i) {
+    current = (i + slides.length) % slides.length;
+    slides.forEach((s, n) => s.classList.toggle('active', n === current));
+    dotEls.forEach((d, n) => { d.classList.toggle('active', n === current); d.setAttribute('aria-current', n === current ? 'true' : 'false'); });
+  }
+  function restartAuto() { clearInterval(timer); timer = setInterval(() => show(current + 1), 7000); }
+  document.querySelector('.slider-next').addEventListener('click', () => { show(current + 1); restartAuto(); });
+  document.querySelector('.slider-prev').addEventListener('click', () => { show(current - 1); restartAuto(); });
+  show(0); restartAuto();
 
-  const header=document.getElementById('site-header'), menu=document.querySelector('.menu'), toggle=document.querySelector('.menu-toggle');
-  toggle.addEventListener('click',()=>{const open=header.classList.toggle('menu-open');toggle.setAttribute('aria-expanded',open)});
-  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{header.classList.remove('menu-open');toggle.setAttribute('aria-expanded','false')}));
+  // Mobile navigation
+  toggle.addEventListener('click', () => {
+    const open = header.classList.toggle('menu-open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    header.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
 
-  // Desktop dropdowns: open while hovering/focusing, and retract immediately on exit.
-  const hoverCapable=window.matchMedia('(min-width: 801px) and (hover: hover)').matches;
-  if(hoverCapable){
-    menu.querySelectorAll('details').forEach(detail=>{
-      detail.addEventListener('mouseenter',()=>{detail.open=true});
-      detail.addEventListener('mouseleave',()=>{detail.open=false});
-      detail.addEventListener('focusin',()=>{detail.open=true});
-      detail.addEventListener('focusout',event=>{
-        if(!detail.contains(event.relatedTarget)) detail.open=false;
-      });
-      detail.querySelector('summary').addEventListener('click',event=>event.preventDefault());
+  // Desktop dropdowns with a short hover grace period.
+  if (window.matchMedia('(min-width: 801px) and (hover: hover)').matches) {
+    menu.querySelectorAll('details').forEach(detail => {
+      let closeTimer;
+      const open = () => { clearTimeout(closeTimer); detail.open = true; };
+      const close = () => { closeTimer = setTimeout(() => { detail.open = false; }, 300); };
+      detail.addEventListener('mouseenter', open);
+      detail.addEventListener('mouseleave', close);
+      detail.addEventListener('focusin', open);
+      detail.addEventListener('focusout', event => { if (!detail.contains(event.relatedTarget)) close(); });
+      detail.querySelector('summary').addEventListener('click', event => event.preventDefault());
     });
   }
 
-  function buildMessage(form){
-    const data=new FormData(form), lines=[];
-    for(const [k,v] of data.entries()) if(v) lines.push(`${k}: ${v}`);
+  // Safari filtering without a page reload.
+  const filterButtons = [...document.querySelectorAll('.filter-btn')];
+  const cards = [...document.querySelectorAll('.safari-card')];
+  const empty = document.getElementById('filter-empty');
+  filterButtons.forEach(button => button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    filterButtons.forEach(b => b.classList.toggle('active', b === button));
+    let visible = 0;
+    cards.forEach(card => {
+      const match = filter === 'all' || card.dataset.country === filter;
+      card.hidden = !match;
+      if (match) visible++;
+    });
+    empty.hidden = visible !== 0;
+  }));
+
+  // Mail client fallback enquiry flow.
+  function buildMessage(form) {
+    const data = new FormData(form), lines = [];
+    for (const [key, value] of data.entries()) if (value) lines.push(`${key}: ${value}`);
     return encodeURIComponent(`Hello Test It and Feel It Adventures,\n\nI would like to enquire about a safari.\n\n${lines.join('\n')}`);
   }
-  document.querySelectorAll('#planner-form,#enquiry-form').forEach(form=>form.addEventListener('submit',e=>{
-    e.preventDefault();
-    window.location.href=`mailto:info@testandfeelandventures.com?subject=${encodeURIComponent('Safari enquiry - Test It and Feel It Adventures')}&body=${buildMessage(form)}`;
+  document.querySelectorAll('#planner-form, #enquiry-form').forEach(form => form.addEventListener('submit', event => {
+    event.preventDefault();
+    const subject = form.id === 'planner-form' ? 'Safari planning enquiry - Test It and Feel It Adventures' : 'Safari quote request - Test It and Feel It Adventures';
+    window.location.href = `mailto:info@testandfeelandventures.com?subject=${encodeURIComponent(subject)}&body=${buildMessage(form)}`;
   }));
+
+  // Prevent selecting a past travel date.
+  const today = new Date().toISOString().split('T')[0];
+  document.querySelectorAll('input[type="date"]').forEach(input => input.min = today);
 })();
 </script>
 </body>
